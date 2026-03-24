@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint & Feedback System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <i class="fas fa-comments"></i> FeedbackHub
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#submit" class="nav-link">Submit</a></li>
+            <li><a href="#complaints" class="nav-link">View All</a></li>
+            <li id="authLinks">
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="signup.html" class="nav-link">Sign Up</a>
+            </li>
+            <li id="userMenu" style="display: none;">
+                <span id="userGreeting" class="nav-link"></span>
+                <a href="#" id="logoutBtn" class="nav-link">Logout</a>
+                <a href="dashboard.html" id="dashboardLink" class="nav-link" style="display: none;">Dashboard</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>We Value Your Feedback</h1>
+        <p>Help us improve by sharing your complaints and suggestions</p>
+    </div>
+</div>
+
+<!-- Main Container -->
+<div class="main-container">
+    <!-- Submit Form Section -->
+    <section id="submit" class="form-section">
+        <div class="section-header">
+            <h2><i class="fas fa-pen-to-square"></i> Submit Your Feedback</h2>
+            <p>Your feedback helps us serve you better</p>
+        </div>
+
+        <div class="form-container">
+            <form id="complaintForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select a category...</option>
+                        <option value="Technical">🔧 Technical Issue</option>
+                        <option value="Service">🎯 Service Quality</option>
+                        <option value="Billing">💳 Billing</option>
+                        <option value="General">📝 General Feedback</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" placeholder="Please share your feedback in detail..." required></textarea>
+                    <span class="char-count"><span id="charCount">0</span>/500</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Submit Feedback
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Submitted Complaints Section -->
+    <section id="complaints" class="complaints-section">
+        <div class="section-header">
+            <h2><i class="fas fa-list"></i> All Feedback</h2>
+            <p>Recent submissions from our community</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Technical">Technical</button>
+            <button class="filter-btn" data-filter="Service">Service</button>
+            <button class="filter-btn" data-filter="Billing">Billing</button>
+            <button class="filter-btn" data-filter="General">General</button>
+        </div>
+
+        <div id="complaintList" class="complaints-grid">
+            <!-- Complaints will be loaded here -->
+        </div>
+
+        <div id="noComplaints" class="empty-state">
+            <i class="fas fa-inbox"></i>
+            <p>No feedback yet. Be the first to share!</p>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2026 FeedbackHub. All rights reserved. | Helping businesses improve through customer feedback</p>
+</footer>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

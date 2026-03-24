@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FeedbackHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <i class="fas fa-tachometer-alt"></i> Admin Dashboard
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="#" id="logoutBtn" class="nav-link">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Dashboard Container -->
+<div class="dashboard-container">
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalComplaints">0</h3>
+                <p>Total Complaints</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon open">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="openComplaints">0</h3>
+                <p>Open Complaints</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon resolved">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="resolvedComplaints">0</h3>
+                <p>Resolved Complaints</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+                <h3 id="totalUsers">0</h3>
+                <p>Total Users</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+        <div class="chart-container">
+            <h3>Complaints by Category</h3>
+            <canvas id="categoryChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Feedback Sentiment Analysis</h3>
+            <canvas id="sentimentChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Recent Complaints -->
+    <div class="recent-complaints">
+        <h3>Recent Complaints</h3>
+        <div id="recentComplaintsList" class="complaints-table">
+            <!-- Recent complaints will be loaded here -->
+        </div>
+    </div>
+
+    <!-- All Complaints Management -->
+    <div class="complaints-management">
+        <h3>All Complaints</h3>
+        <div class="filters">
+            <h4>Status Filters:</h4>
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Open">Open</button>
+            <button class="filter-btn" data-filter="Resolved">Resolved</button>
+            <button class="filter-btn" data-filter="In Progress">In Progress</button>
+        </div>
+        <div class="filters">
+            <h4>Sentiment Filters:</h4>
+            <button class="sentiment-filter-btn active" data-sentiment="all">All</button>
+            <button class="sentiment-filter-btn" data-sentiment="Positive">Positive</button>
+            <button class="sentiment-filter-btn" data-sentiment="Neutral">Neutral</button>
+            <button class="sentiment-filter-btn" data-sentiment="Negative">Negative</button>
+        </div>
+
+        <div id="complaintsTable" class="complaints-table">
+            <!-- All complaints will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
